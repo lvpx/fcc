@@ -1,0 +1,17 @@
+{
+  "name": "alpha",
+  "version": "1.0.0",
+  "description": "my alpha project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alpha"
+  ],
+  "author": "xcodex",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
