@@ -1,10 +1,48 @@
+/* Unix timserver Api
+ * Things to do
+ 	Error handling for bad requests
+ 	Other Error handling and exception handling
+ */
+
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+app.get('/:timeString', function (request, response) {
+	// console.log('request has arrived');
+	var timeString = request.params.timeString;
+	// console.log(typeof timeString);
+	var parsedDate = new Date(timeString);
+	// console.log(parsedDate);
+    var isValid = (parsedDate.toString() === 'Invalid Date'? false: true);
+    if(!isValid){
+    	parsedDate = new Date(+timeString);
+    	isValid = (parsedDate.toString() === 'Invalid Date'? false: true);
+		// console.log(parsedDate);
+    }
+
+	var timeObj = {};
+	if(isValid){
+		timeObj['unix'] = parsedDate.getTime();
+		timeObj['natural'] = parsedDate.toDateString();
+	}
+	else{
+		timeObj['unix'] = null;
+		timeObj['natural'] = null;
+	}
+	response.setHeader('Content-Type','application/json');
+	response.send(JSON.stringify(timeObj));
 });
 
+// app.all('*', function(request, response) {
+// 	throw new Error("Bad Request");
+// });
+
+// app.use(function(e, request, response, next){
+// 	if (e.message === "Bad request") {
+// 	        response.status(400).json({error: {msg: e.message, stack: e.stack}}).send();
+// 	}
+// });
+
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+	console.log('Timeserver listening on port 3000!');
 });
