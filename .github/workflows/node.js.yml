@@ -26,9 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Print path details
-      run: | 
-        ls -ahltr {{ github.workspace }}
     - name: Cache build folder
       uses: pdotl/cache@46ae20a8179a5ca5ef3e5e500227e1e3a0e70546
       with:
