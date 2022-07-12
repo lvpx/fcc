@@ -31,7 +31,7 @@ jobs:
        ls -ahltr .
        ls -ahltr ..
     - name: Cache build folder
-      uses: pdotl/cache@d070cf814c0528013184c0a9db17449aa65f5c06
+      uses: pdotl/cache@7832f63d0e742e418874f9c3eab6d83b4c1ef95e
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         # key: cs-repo-constant
