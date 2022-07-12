@@ -12,7 +12,7 @@
   "author": "xcodex",
   "license": "MIT",
   "dependencies": {
-    "chrono-node": "^1.2.4",
+    "chrono-node": "^2.3.9",
     "express": "^4.14.0"
   }
 }
