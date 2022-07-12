@@ -33,5 +33,5 @@ jobs:
       uses: pdotl/cache@fbd8bbb31ec0fb88025f9cc41a9e750358d6ed41
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
-        path: "../."
+        path: "."
     - run: npm ci
