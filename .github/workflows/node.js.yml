@@ -26,4 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Cache build folder
+      uses: actions/cache@v3
+      with:
+        key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
+        path: ${{ github.workspace }}
     - run: npm ci
