@@ -5,6 +5,7 @@
  */
 
 var express = require('express');
+var path = require('path');
 var app = express();
 
 app.get('/:timeString', function (request, response) {
@@ -44,5 +45,7 @@ app.get('/:timeString', function (request, response) {
 // });
 
 app.listen(3000, function () {
+	console.log(path.relative('/workspaces/fcc','/workspaces/fcc'));
+	console.log(path.relative('../', '.'));
 	console.log('Timeserver listening on port 3000!');
 });
