@@ -28,8 +28,7 @@ jobs:
         cache: 'npm'
     - name: Print dir contents
       run: |
-       ls -ahltr .
-       ls -ahltr ..
+       ls -ahltr ${{ github.workspace }}
     - name: Cache build folder
       uses: pdotl/cache@51e54f8857621a5e2b174af974a4a1275f37df9c
       with:
