@@ -35,5 +35,5 @@ jobs:
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         # key: cs-repo-constant
-        path: ${{ github.workspace }}
+        path: .
     - run: npm ci
