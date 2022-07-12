@@ -34,6 +34,5 @@ jobs:
       uses: pdotl/cache@51e54f8857621a5e2b174af974a4a1275f37df9c
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
-        # key: cs-repo-constant
-        path: .
+        path: ${{ github.workspace }}
     - run: npm ci
