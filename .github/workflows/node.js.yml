@@ -26,6 +26,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Print dir contents
+      run: |
+       ls -ahltr .
+       ls -ahltr ..
     - name: Cache build folder
       uses: pdotl/cache@d070cf814c0528013184c0a9db17449aa65f5c06
       with:
