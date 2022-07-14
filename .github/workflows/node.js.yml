@@ -30,7 +30,7 @@ jobs:
       run: |
        ls -ahltr ${{ github.workspace }}
     - name: Cache build folder
-      uses: pdotl/cache@fbd8bbb31ec0fb88025f9cc41a9e750358d6ed41
+      uses: pdotl/cache@5fd066637a8f8e5608f61fa84328d1b6106a978e
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
