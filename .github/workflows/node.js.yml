@@ -35,3 +35,4 @@ jobs:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
     - run: npm ci
+    - run: echo ${{ toJSON(steps) }}
