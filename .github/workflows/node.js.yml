@@ -45,4 +45,5 @@ jobs:
     - name: Test bts
       id: bts
       uses: pdotl/bts@c6ec19ce76d46ab20a8ada9b63d9d2586a1f555e
+      with:
         content: ${{ steps }}
