@@ -9,7 +9,7 @@
   "keywords": [
     "alpha"
   ],
-  "author": "xcodex",
+  "author": "pdotl",
   "license": "MIT",
   "dependencies": {
     "chrono-node": "^2.3.9",
