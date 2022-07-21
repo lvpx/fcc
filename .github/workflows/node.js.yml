@@ -34,7 +34,7 @@ jobs:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
     - name: Run tests
-      run: npm ci
+      run: npm test
       id: test
     - name: Push Notification
       uses: apurva1112/bts@pdotl-hackit-1
