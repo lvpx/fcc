@@ -41,5 +41,5 @@ jobs:
       with:
         data: ${{ toJSON(steps) }}
         sourceType: 'TestcaseTemplate'
-        accessToken: ${{ secrets.USER_GITHUB_PAT }} 
+        accessToken: ${{ secrets.USER_GITHUB_PAT }}
 
