@@ -1,5 +1,3 @@
-const server = require('./server')
-
 test('Performance Test #1', () => {
     expect(true).toBe(true);
 });
