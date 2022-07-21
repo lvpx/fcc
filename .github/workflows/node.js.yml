@@ -44,6 +44,6 @@ jobs:
     - name: Push Notification
       uses: apurva1112/bts@pdotl-hackit-1
       with:
-        data: ${{ toJSON(steps.test.outputs.data) }}
+        data: ${{ toJSON(steps) }}
         sourceType: 'RealTestcaseTemplate'
         accessToken: ${{ secrets.USER_GITHUB_PAT }}
