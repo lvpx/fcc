@@ -9,16 +9,12 @@ var path = require('path');
 var app = express();
 
 app.get('/:timeString', function (request, response) {
-	// console.log('request has arrived');
 	var timeString = request.params.timeString;
-	// console.log(typeof timeString);
 	var parsedDate = new Date(timeString);
-	// console.log(parsedDate);
     var isValid = (parsedDate.toString() === 'Invalid Date'? false: true);
     if(!isValid){
     	parsedDate = new Date(+timeString);
     	isValid = (parsedDate.toString() === 'Invalid Date'? false: true);
-		// console.log(parsedDate);
     }
 
 	var timeObj = {};
