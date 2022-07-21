@@ -4,7 +4,7 @@
   "description": "my alpha project",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "alpha"
@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "chrono-node": "^2.3.9",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "jest": "^28.1.3"
   }
 }

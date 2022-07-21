@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -28,22 +27,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Print dir contents
-      id: print
-      run: |
-       ls -ahltr ${{ github.workspace }}
     - name: Cache build folder
       uses: pdotl/cache@5fd066637a8f8e5608f61fa84328d1b6106a978e
       id: Cache
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
-    - run: |
-          echo "::set-output name=content::$(cat testcases.json)"
+    - name: Run tests
+      run: npm ci
       id: test
-    - name: Push Notification
-      uses: apurva1112/bts@pdotl-hackit-1
-      with:
-        data: ${{ toJSON(steps.test.outputs.content) }}
-        sourceType: 'TestcaseTemplate'
-        accessToken: ${{ secrets.USER_GITHUB_PAT }}
+  
