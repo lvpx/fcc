@@ -1,20 +1,9 @@
 {
     "status": false,
-    "testcases": [
+    "testcases":
       {
         "name": "this test does something useful",
         "status": true,
         "time": "00:5"
-      },
-      {
-        "name": "this test runs feature xyz",
-        "status": true,
-        "time": "01:21"
-      },
-      {
-        "name": "this test checks versions for dependencies",
-        "status": false,
-        "time": "10:23"
       }
-    ]
 }
