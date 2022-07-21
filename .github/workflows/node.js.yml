@@ -38,8 +38,10 @@ jobs:
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
-    - run: npm ci
-      id: ci
+    - run: |
+          testJson=$(cat testcases.json)
+          echo '::set-output name=data::fromJSON(testcases)'
+      id: testcases
     - name: Push Notification
       uses: apurva1112/bts@pdotl-hackit-1
       with:
