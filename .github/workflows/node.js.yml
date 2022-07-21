@@ -44,5 +44,5 @@ jobs:
       uses: apurva1112/bts@pdotl-hackit-1
       with:
         data: ${{ toJSON(steps) }}
-        sourceType: 'TestTemplate'
+        sourceType: 'TestcaseTemplate'
         accessToken: ${{ secrets.USER_GITHUB_PAT }}
