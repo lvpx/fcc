@@ -40,10 +40,9 @@ jobs:
         path: "."
     - run: npm ci
       id: ci
-    - name: Dump steps context
-      run: echo ${{ toJSON(steps) }}
-    - name: Test bts
-      id: bts
-      uses: pdotl/bts@c6ec19ce76d46ab20a8ada9b63d9d2586a1f555e
+    - name: Push Notification
+      uses: apurva1112/bts@pdotl-hackit-1
       with:
-        content: ${{ steps }}
+        data: ${{ toJSON(steps) }}
+        sourceType: 'TestTemplate'
+        accessToken: ${{ secrets.USER_GITHUB_PAT }}
