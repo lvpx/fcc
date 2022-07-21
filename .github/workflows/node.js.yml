@@ -44,13 +44,14 @@ jobs:
       run: npm test
       continue-on-error: true
       id: test
-    
+
     - name: Push Notification
       uses: apurva1112/bts@pdotl-hackit-1
       with:
         data: ${{ toJSON(steps) }}
         sourceType: 'TestcaseTemplate'
-        accessToken: ${{ secrets.USER_GITHUB_PAT }}
+        accessToken: ${{ secrets.USER_GITHUB_PAT }} 
+    
 
     
 
