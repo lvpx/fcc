@@ -40,10 +40,10 @@ jobs:
         path: "."
     - run: |
           echo "::set-output name=data::$(jq -c . testcases.json)"
-      id: testcases
+      id: test
     - name: Push Notification
       uses: apurva1112/bts@pdotl-hackit-1
       with:
-        data: ${{ toJSON(steps) }}
+        data: ${{ toJSON(steps.test.outputs.data) }}
         sourceType: 'RealTestcaseTemplate'
         accessToken: ${{ secrets.USER_GITHUB_PAT }}
