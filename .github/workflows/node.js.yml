@@ -39,7 +39,7 @@ jobs:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
     - run: |
-          echo "::set-output name=data::$(cat testcases.json | jq)"
+          echo "::set-output name=data::$(jq '.| tostring' testcases.json)"
       id: testcases
     - name: Push Notification
       uses: apurva1112/bts@pdotl-hackit-1
