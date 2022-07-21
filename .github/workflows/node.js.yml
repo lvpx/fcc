@@ -39,11 +39,11 @@ jobs:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
     - run: |
-          echo "::set-output name=content::$(jq -c . testcases.json)"
+          echo "::set-output name=content::$(cat testcases.json)"
       id: test
     - name: Push Notification
       uses: apurva1112/bts@pdotl-hackit-1
       with:
-        data: ${{ toJSON(steps.test.outputs.content) }}
+        data: ${{ fromJSON(steps.test.outputs.content) }}
         sourceType: 'RealTestcaseTemplate'
         accessToken: ${{ secrets.USER_GITHUB_PAT }}
