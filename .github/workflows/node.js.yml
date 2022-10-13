@@ -30,7 +30,7 @@ jobs:
         cache: 'npm'
 
     - name: Cache build folder
-      uses: pdotl/cache@5fd066637a8f8e5608f61fa84328d1b6106a978e
+      uses: actions/cache@v3
       id: Cache
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
