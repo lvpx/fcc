@@ -9,30 +9,60 @@ on:
   pull_request:
     branches: [ "master" ]
 
+# jobs:
+#   build:
+
+    # runs-on: ${{ matrix.os }}
+
+    # strategy:
+    #   matrix:
+    #     node-version: [16.x]
+    #     os: ["ubuntu-latest", "windows-latest", "macos-latest"]
+    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    # steps:
+    # - uses: actions/checkout@v3
+    # - name: Use Node.js ${{ matrix.node-version }}
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: ${{ matrix.node-version }}
+    #     cache: 'npm'
+    # - name: Print dir contents
+    #   run: |
+    #    ls -ahltr ${{ github.workspace }}
+    # - name: Cache build folder
+    #   uses: pdotl/cache@main
+    #   with:
+    #     key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
+    #     path: "."
+    # - run: npm ci
 jobs:
-  build:
-
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+  cross-os:
+    runs-on: windows-latest 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Print dir contents
-      run: |
-       ls -ahltr ${{ github.workspace }}
-    - name: Cache build folder
-      uses: pdotl/cache@main
-      with:
-        key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
-        path: "."
-    - run: npm ci
+      - name: Setup python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Cache using gnutar + zstd
+        uses: pdotl/cache@main
+        id: pdotl-cache
+        with:
+          path: temp
+          key: gnutar-zstd-key
+
+      - name: Cache using bsdtar + gzip
+        uses: actions/cache@v3
+        id: actions-cache
+        with:
+          path: temp
+          key: bsdtar-gzip-key
+
+      - name: Install dependencies
+        run: |
+          ls -a
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -t temp
+        if: steps.pdotl-cache.outputs.cache-hit != 'true' && steps.actions-cache.outputs.cache-hit != 'true'
+        shell: bash
