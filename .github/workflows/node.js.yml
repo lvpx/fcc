@@ -62,6 +62,7 @@ jobs:
       - name: Install dependencies
         run: |
           ls -a
+          pwd
           python -m pip install --upgrade pip
           pip install -r requirements.txt -t temp
         if: steps.pdotl-cache.outputs.cache-hit != 'true' && steps.actions-cache.outputs.cache-hit != 'true'
