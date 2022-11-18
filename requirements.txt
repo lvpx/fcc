@@ -253,7 +253,3 @@ xarray==2022.3.0
     # via pandas-flavor
 zipp==3.7.0
     # via importlib-metadata
-
-# The following packages are considered to be unsafe in a requirements file:
-# pip
-# setuptools
