@@ -23,7 +23,9 @@ jobs:
     - name: Print versions
       run: |
        zstd -q --version
-       tar --version
+       zstd --quiet --version
+       zstd --version --quiet
+       zstd -Vq
     - name: Cache build folder
       uses: pdotl/cache@6f0a8cf36564519cb226a183601cabc805b624ad
       with:
