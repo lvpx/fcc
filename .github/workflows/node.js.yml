@@ -24,7 +24,7 @@ jobs:
       run: |
        tar --version
     - name: Cache build folder
-      uses: pdotl/cache@ae36abc5f1b4e0315f66d135ac060e6b685f7ef8
+      uses: pdotl/cache@bc3807236e07a348d9e9704c467ca240e8b1bdb7
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
