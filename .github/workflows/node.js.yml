@@ -27,7 +27,7 @@ jobs:
        zstd --version --quiet
        zstd -Vq
     - name: Cache build folder
-      uses: pdotl/cache@6f0a8cf36564519cb226a183601cabc805b624ad
+      uses: pdotl/cache@31f52b7ed9824ea373b760a607ba8d92d0fd1923
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
