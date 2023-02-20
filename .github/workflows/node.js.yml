@@ -22,10 +22,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Print versions
       run: |
-       zstd -q --version
-       zstd --quiet --version
-       zstd --version --quiet
-       zstd -Vq
+       tar --version
     - name: Cache build folder
       uses: pdotl/cache@1a5e0c841edf9e8bffdaf5b96e2481800f1bf52a
       with:
