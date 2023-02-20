@@ -25,7 +25,7 @@ jobs:
        zstd -q --version
        tar --version
     - name: Cache build folder
-      uses: actions/cache@v3
+      uses: pdotl/cache@6f0a8cf36564519cb226a183601cabc805b624ad
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
