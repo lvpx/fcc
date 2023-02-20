@@ -17,21 +17,15 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        os: ["windows-2022", "windows-2019"]
+        os: ["windows-latest", "macos-latest", "linux-latest"]
     steps:
     - uses: actions/checkout@v3
-    # - name: Use Node.js ${{ matrix.node-version }}
-    #   uses: actions/setup-node@v3
-    #   with:
-    #     node-version: ${{ matrix.node-version }}
-    #     cache: 'npm'
-    - name: Print dir contents
+    - name: Print versions
       run: |
-       ls -ahltr ${{ github.workspace }}
-       pwd
-    # - name: Cache build folder
-    #   uses: actions/cache@v3
-    #   with:
-    #     key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
-    #     path: "."
-    # - run: npm ci
+       zstd --version
+       tar --version
+    - name: Cache build folder
+      uses: actions/cache@v3
+      with:
+        key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
+        path: "."
