@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        os: ["windows-latest", "macos-latest", "ubuntu-latest"]
+        os: ["windows-latest", "macos-latest", "ubuntu-latest", "self-hosted"]
     steps:
     - uses: actions/checkout@v3
     - name: Print versions
@@ -27,7 +27,7 @@ jobs:
        zstd --version --quiet
        zstd -Vq
     - name: Cache build folder
-      uses: pdotl/cache@31f52b7ed9824ea373b760a607ba8d92d0fd1923
+      uses: pdotl/cache@1a5e0c841edf9e8bffdaf5b96e2481800f1bf52a
       with:
         key: cs-repo-${{ github.run_number }}-${{ github.run_attempt }}
         path: "."
